@@ -5,29 +5,34 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  max-width: 680px;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 `;
 
 export const Boards = styled.div`
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 `;
 
-export const InsideBoard = styled.div`
-  padding-top: 30px;
-  padding: 20px 10px;
-  background-color: ${(props) => props.theme.boardColor};
-  border-radius: 10px;
-  min-height: 200px;
-`;
-
-export const Card = styled.div`
-  padding: 10px 10px;
+export const Card = styled.div<{ $isDragging: boolean }>`
+  padding: 10px 15px;
   margin-bottom: 5px;
   border-radius: 10px;
-  background-color: ${(props) => props.theme.cardColor};
+  color: ${(props) => (props.$isDragging ? "#CDD3DE" : "black")};
+  background-color: ${(props) =>
+    props.$isDragging ? "#222834" : props.theme.cardColor};
+  box-shadow: ${(props) =>
+    props.$isDragging ? "0px 2px 5px rgba(0,0,0,0.5)" : "none"};
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Title = styled.h1`
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 20px;
 `;
